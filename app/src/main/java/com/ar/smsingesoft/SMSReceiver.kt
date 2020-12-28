@@ -1,4 +1,4 @@
-package com.ar.smscomet
+package com.ar.smsingesoft
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -34,7 +34,7 @@ class SMSReceiver : BroadcastReceiver() {
                     val pdus = smsBundle.get("pdus") as Array<Any>
                     if (pdus == null) {
                         // Display some error to the user
-                        e(TAG, "SmsBundle had no pdus key")
+                        e(TAG, "SmsBundle no tenia key")
                         return
                     }
                     val messages = arrayOfNulls<SmsMessage>(pdus.size)

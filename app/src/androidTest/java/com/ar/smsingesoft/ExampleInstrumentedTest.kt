@@ -1,4 +1,4 @@
-package com.ar.smscomet
+package com.ar.smsingesoft
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("com.ar.smshub", appContext.packageName)
+        assertEquals("com.ar.smsingesoft", appContext.packageName)
     }
 }

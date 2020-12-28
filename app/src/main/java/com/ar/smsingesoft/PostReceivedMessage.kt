@@ -1,4 +1,4 @@
-package com.ar.smscomet
+package com.ar.smsingesoft
 
 import android.os.AsyncTask
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.ar.smscomet">
+          package="com.ar.smsingesoft">
 
     <application
             android:allowBackup="true"
@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name="com.ar.smscomet.MainActivity"
+                android:name="com.ar.smsingesoft.MainActivity"
                 android:label="@string/app_name"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,7 +20,7 @@
             </intent-filter>
             <!-- Declare SMS Broadcast receiver -->
         </activity>
-        <receiver android:name="com.ar.smscomet.SMSReceiver" android:permission="android.permission.BROADCAST_SMS">
+        <receiver android:name="com.ar.smsingesoft.SMSReceiver" android:permission="android.permission.BROADCAST_SMS">
             <intent-filter android:priority="999">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>

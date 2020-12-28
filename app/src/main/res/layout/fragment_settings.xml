@@ -9,7 +9,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-        <Switch android:text="Activeaza trimiterea de SMS"
+        <Switch android:text="Activar el Envio de SMS"
                 android:textSize="20sp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
-            android:text="Interval (minuute)"
+            android:text="Intervalo (min)"
             android:textSize="15sp" />
 
 
@@ -82,7 +82,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
-            android:text="ID Cabinet"
+            android:text="Id Dispositivo"
             android:textSize="15sp" />
 
 
@@ -130,8 +130,9 @@
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autoText="false"
         android:ems="12"
-        android:text="Salveaza" />
+        android:text="Guardar" />
 
 
 </LinearLayout>

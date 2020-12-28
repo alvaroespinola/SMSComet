@@ -1,22 +1,22 @@
 <resources>
-    <string name="app_name">SMSComet</string>
-    <string name="action_settings">Setari</string>
+    <string name="app_name">SMSIngesoft</string>
+    <string name="action_settings">Propiedades</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Salut</string>
+    <string name="hello_blank_fragment">Saludos</string>
 
     <integer name="preference_default_interval">1</integer>
     <bool name="preference_default_send_enabled">false</bool>
-    <string name="preference_default_send_url">https://yourserver.com/smshub.php</string>
+    <string name="preference_default_send_url">https://sms.ingesoft.com.py/ingesoft/smshub.php</string>
     <string name="preference_default_device_id">10</string>
-    <string name="preference_default_device_secret">1234</string>
+    <string name="preference_default_device_secret">12345</string>
 
-    <string name="preference_file_key">com.ar.smscomet.prefs</string>
-    <string name="preference_send_url">com.ar.smscomet.prefs.send_url</string>
-    <string name="preference_interval">com.ar.smscomet.prefs.interval</string>
-    <string name="preference_send_enabled">com.ar.smscomet.prefs.send_enabled</string>
-    <string name="preference_device_id">com.ar.smscomet.prefs.device_id</string>
-    <string name="preference_device_secret">com.ar.smscomet.prefs.device_secret</string>
+    <string name="preference_file_key">com.ar.smsingesoft.prefs</string>
+    <string name="preference_send_url">com.ar.smsingesoft.prefs.send_url</string>
+    <string name="preference_interval">com.ar.smsingesoft.prefs.interval</string>
+    <string name="preference_send_enabled">com.ar.smsingesoft.prefs.send_enabled</string>
+    <string name="preference_device_id">com.ar.smsingesoft.prefs.device_id</string>
+    <string name="preference_device_secret">com.ar.smsingesoft.prefs.device_secret</string>
 
 
 

@@ -1,4 +1,4 @@
-# SMSComet
+# SMSIngesoft
 
 Original from https://github.com/juancrescente/SMSHub
 

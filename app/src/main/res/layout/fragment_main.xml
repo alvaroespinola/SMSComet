@@ -27,7 +27,7 @@
         android:id="@+id/buttonClearLog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sterge Loguri" />
+        android:text="Borrar Registro" />
 
     <ImageView
         android:id="@+id/imageView"

@@ -1,4 +1,4 @@
-package com.ar.smscomet
+package com.ar.smsingesoft
 
 import android.Manifest
 import android.content.BroadcastReceiver
@@ -15,11 +15,18 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.work.Constraints
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 
 class MainActivity : AppCompatActivity() {
+
+    private var context: Context? = null
+
     var request_code = 0
     var MY_PERMISSIONS_REQUEST_SEND_SMS = 1
     val MY_PERMISSIONS_REQUEST_SMS_RECEIVE = 10
@@ -45,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         fragmentManager.executePendingTransactions()
         //initialize timer for the first time
 
-
+        context = this
 
         updateTimer()
         requestSMSSendPermission()
@@ -59,6 +66,23 @@ class MainActivity : AppCompatActivity() {
         } catch (e: IllegalArgumentException) {
             Log.d("-->", "Already subscribed")
         }
+
+        val oneTimeWorkRequest = OneTimeWorkRequest.Builder(UploadWorker::class.java).build()
+
+//        val constraints = Constraints.Builder()
+//            .setRequiresCharging(true)
+//            .build()
+//
+//        val saveRequest =
+//            PeriodicWorkRequestBuilder<SaveImageToFileWorker>(1, TimeUnit.HOURS)
+//                .setConstraints(constraints)
+//                .build()
+//
+//        WorkManager.getInstance(this)
+//            .enqueue(saveRequest)
+
+
+        WorkManager.getInstance().enqueue(oneTimeWorkRequest)
     }
 
     override fun onStop() {
@@ -85,7 +109,7 @@ class MainActivity : AppCompatActivity() {
             val b = intent.extras
             val number = b!!.getString("number")
             val message = b!!.getString("message")
-            logMain("Mesaj primit si postat de la: " + number + " - text: " + message)
+            logMain("Mensaje Recibido y Publicado de: " + number + " - text: " + message)
         }
     }
     fun logMain(message: String, newline: Boolean = true) {
@@ -99,7 +123,7 @@ class MainActivity : AppCompatActivity() {
         var i  = mainFragment.textMainLog.getLineCount()
 
         if (newline) {
-            mainFragment.textMainLog.setText(mainFragment.textMainLog.text.toString() + "\n" + i + ". " +message)
+            mainFragment.textMainLog.setText(mainFragment.textMainLog.text.toString() + "\n" + i + ". " + message)
         } else {
             mainFragment.textMainLog.setText(mainFragment.textMainLog.text.toString() + message)
         }
@@ -151,7 +175,7 @@ class MainActivity : AppCompatActivity() {
             invalidateOptionsMenu()
             //this does not work
             //logMain("Timer started at " + minutes.toString())
-            Log.d("---->", "Timer started at " + interval.toString())
+            Log.d("---->", "Timer iniciado en " + interval.toString())
             timerSend.schedule(SendTask(settingsManager, this), interval, interval)
         }
     }
@@ -204,7 +228,10 @@ class MainActivity : AppCompatActivity() {
      * Request runtime SMS permission
      */
     private fun requestSMSReadPermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.RECEIVE_SMS)) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(
+                this,
+                Manifest.permission.RECEIVE_SMS
+            )) {
             // You may display a non-blocking explanation here, read more in the documentation:
             // https://developer.android.com/training/permissions/requesting.html
         }
@@ -258,7 +285,8 @@ class MainActivity : AppCompatActivity() {
 
         return when (item.itemId) {
             R.id.action_settings -> {
-                var settingsFragment = fragmentManager.findFragmentByTag("SETTINGS") as? SettingsFragment
+                var settingsFragment =
+                    fragmentManager.findFragmentByTag("SETTINGS") as? SettingsFragment
                 if (settingsFragment == null) {
                     settingsFragment = SettingsFragment()
                 }

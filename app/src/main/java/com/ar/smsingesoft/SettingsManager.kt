@@ -1,10 +1,10 @@
-package com.ar.smscomet
+package com.ar.smsingesoft
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import android.widget.Toast
-import com.ar.smscomet.R
+import com.ar.smsingesoft.R
 
 class SettingsManager {
 
@@ -54,7 +54,7 @@ class SettingsManager {
             putInt(context.getString(R.string.preference_interval), _interval)
             commit()
             Log.d("--->_isSendEnabled", _isSendEnabled.toString())
-            Toast.makeText(context, "Setarile au fost schmbate", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "La configuración ha sido cambiada", Toast.LENGTH_SHORT).show()
         }
         this.updateSettings()
     }
